@@ -7,7 +7,7 @@ gulp.task('browser-sync', function() {
 
 bs1.init({
     proxy: "http://localhost:3000",  // !!!SETTING!!!
-    port: 4000,
+    port: 80,
     reloadDelay: 0,
         ui: {
         port: 9999
