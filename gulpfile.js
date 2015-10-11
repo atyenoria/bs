@@ -11,7 +11,7 @@ gulp.task('browser-sync', function() {
 
 bs1.init({
     proxy: "http://localhost:7070",
-    port: 7000,
+    port: 5000,   // SATIC SERVER ACCESS!!
     reloadDelay: 0,
         ui: {
         port: 9999
@@ -20,7 +20,7 @@ bs1.init({
 
 bs2.init({
     proxy: "http://localhost:3000", // MAIN SERVE PORT!!
-    port: 3010,
+    port: 4000,  // MAIN SERVER ACCESS!!
     reloadDelay: 0,
             ui: {
         port: 9998
