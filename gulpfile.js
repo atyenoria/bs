@@ -1,56 +1,25 @@
 var gulp = require('gulp');
 var browserSync = require("browser-sync");
-// var static = require('node-static');
 var bs1 = browserSync.create("proxy1");
-// var bs2 = browserSync.create("proxy2");
-
 
 
 gulp.task('browser-sync', function() {
 
 bs1.init({
-    proxy: "http://localhost:3000",
-    port: 4000,   // MAIN SERVER ACCESS!!
+    proxy: "http://localhost:3000",  // !!!SETTING!!!
+    port: 4000,
     reloadDelay: 0,
         ui: {
         port: 9999
     }
 });
 
-// bs2.init({
-//     proxy: "http://localhost:3000", // MAIN SERVE PORT!!
-//     port: 4000,  // MAIN SERVER ACCESS!!
-//     reloadDelay: 0,
-//             ui: {
-//         port: 9998
-//     }
-// });
-
 });
 
 
 gulp.task('bs-reload', function () {
     bs1.reload();
-    // bs2.reload();
 });
-
-
-
-
-// gulp.task('node-static', function () {
-// var file = new static.Server('../public');  // STATIC FILES!!
-
-// require('http').createServer(function (request, response) {
-//     request.addListener('end', function () {
-//     file.serve(request, response);
-//     }).resume();
-// }).listen(7070);
-
-// });
-
-
-
-
 
 gulp.task('default', ['browser-sync'], function () {
     gulp.watch("../**/*", ['bs-reload']);
@@ -59,4 +28,26 @@ gulp.task('default', ['browser-sync'], function () {
 
 
 
+
+
+
+
+
+
+
+
+
+
+//accept privilege port for non root user
+//sudo sysctl -w net.inet.ip.forwarding=1
+// echo 'rdr pass on lo0 inet proto tcp from any to 127.0.0.1 port 80 -> 127.0.0.1 port 4000' | sudo pfctl -ef -
+
+// check
+// sudo pfctl -sn
+
+// disable
+// sudo pfctl -ef /etc/pf.conf
+
+// enable
+// sudo pfctl -e
 
