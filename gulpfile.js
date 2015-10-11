@@ -52,7 +52,7 @@ gulp.task('bs-reload', function () {
 
 
 
-gulp.task('default', ['browser-sync','node-static'], function () {
+gulp.task('default', ['browser-sync'], function () {
     gulp.watch("../**/*", ['bs-reload']);
 });
 
